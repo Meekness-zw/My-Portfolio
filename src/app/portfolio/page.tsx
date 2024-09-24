@@ -1,10 +1,8 @@
-"use client"
-import { motion, useScroll, useTransform } from 'framer-motion'
-import { useRef } from 'react'
+"use client";
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-
-
 
 const items = [
   {
@@ -12,7 +10,7 @@ const items = [
     color: "from-red-300 to-blue-300",
     title: "Manage",
     desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores ab id ad nesciunt quo aut corporis modi? Voluptate, quos sunt dolorum facilis, id eum sequi placeat accusantium saepe eos laborum.",
-    img: "/Flexbox.png",  // No need for require or import
+    img: "/Flexbox.png",
     link: "https://meekness-zw.github.io/Tailwind/",
   },
   {
@@ -41,12 +39,11 @@ const items = [
   },
 ];
 
-
-const page = () => {
+const Page = () => {  // Changed 'page' to 'Page' to follow React naming conventions
 
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({ target: ref });
-  const x = useTransform(scrollYProgress, [0, 1], ["0%", "-80%"])
+  const x = useTransform(scrollYProgress, [0, 1], ["0%", "-80%"]);
 
   return (
     <motion.div className='h-full' initial={{ y: "-200vh" }} animate={{ y: "0%" }} transition={{ duration: 1 }}>
@@ -55,18 +52,20 @@ const page = () => {
         <div className='sticky top-0 flex h-screen gap-4 items-center overflow-hidden'>
           <motion.div style={{ x }} className="flex">
             <div className="h-screen w-screen flex items-center justify-center bg-gradient-to-r from-purple-300 to-red-300" />
-            {items.map(item => (<div className={`h-screen w-screen flex items-center justify-center bg-gradient-to-r ${item.color}`} key={item.id}>
-              <div className='flex flex-col gap-8 text-white'>
-                <h1 className='text-xl font-bold md:text-4xl lg:text-6xl xl:text-8xl'>{item.title}</h1>
-                <div className="relative w-80 h-56 md:w-96 md:h-64 lg:w-[500px] lg:h-[350px] xl:w-[400px] xl:h-[300px]">
-                  <Image src={item.img} alt="" fill />
+            {items.map(item => (
+              <div className={`h-screen w-screen flex items-center justify-center bg-gradient-to-r ${item.color}`} key={item.id}>
+                <div className='flex flex-col gap-8 text-white'>
+                  <h1 className='text-xl font-bold md:text-4xl lg:text-6xl xl:text-8xl'>{item.title}</h1>
+                  <div className="relative w-80 h-56 md:w-96 md:h-64 lg:w-[500px] lg:h-[350px] xl:w-[400px] xl:h-[300px]">
+                    <Image src={item.img} alt="" fill />
+                  </div>
+                  <p className='w-80 md:w-96'>{item.desc}</p>
+                  <Link href={item.link} className='flex justify-end'>
+                    <button className='p-[50px] text-sm md:p-4 md:text-md lg:p-8 lg:text-lg bg-white text-gray-600 font-semibold m-3 rounded'>See Demo</button>
+                  </Link>
                 </div>
-                <p className='w-80 md:w-96'>{item.desc}</p>
-                <Link href={item.link} className='flex justify-end'>
-                  <button className='p-[50px] text-sm md:p-4 md:text-md lg:p-8 lg:text-lg bg-white text-gray-600 font-semibold m-3 rounded'>See Demo</button>
-                </Link>
               </div>
-            </div>))}
+            ))}
           </motion.div>
         </div>
       </div>
@@ -88,8 +87,7 @@ const page = () => {
         </div>
       </div>
     </motion.div>
+  );
+};
 
-  )
-}
-
-export default page
+export default Page;  
