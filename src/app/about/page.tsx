@@ -25,14 +25,7 @@ const Page = () => {
           <div className="flex flex-col gap-12 justify-center">
             <h1 className='font-bold text-2xl'>BIOGRAPHY</h1>
             {/* Biography desc */}
-            <p className='text-lg'>Goal-oriented full stack developer with a background in UX/UI design and
-              digital marketing and a passion for creating efficient and appealing websites
-              and applications. Combining expertise in front-end and back-end
-              development, I thrive in collaborative environments and aspire to
-              contribute to innovative software solutions.My passion lies in solving
-              complex problems through innovative software solutions. I’m a
-              collaborative team player who is always eager to learn and contribute to
-              cutting-edge projects.</p>
+            <p className='text-lg'>Goal-oriented full stack developer with a background in UX/UI design and digital marketing. I excel in creating efficient, appealing websites and applications, combining front-end and back-end expertise. A collaborative team player, I’m passionate about solving complex problems and eager to contribute to innovative projects.</p>
             {/* Biography quote */}
             <span className='italic'>Crafting seamless digital experiences, from web to mobile.</span>
             {/* Biography sign svg */}
